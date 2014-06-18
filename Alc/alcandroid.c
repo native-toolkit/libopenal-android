@@ -14,7 +14,7 @@ JavaVM *alcGetJavaVM(void) {
 
 	//when called as a shared lib, this is automatic
 	//but when embedding it that will be an error
-#ifdef LUMEN_LIB_OPENAL_ANDROID_SHARED
+#ifdef NATIVE_TOOLKIT_OPENAL_ANDROID_SHARED
 
 	JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
 		alcandroid_OnLoad(vm);
@@ -25,7 +25,7 @@ JavaVM *alcGetJavaVM(void) {
 		alcandroid_OnUnload(vm);
 	}
 
-#endif //LUMEN_LIB_OPENAL_ANDROID_SHARED
+#endif //NATIVE_TOOLKIT_OPENAL_ANDROID_SHARED
 
 
 void alcandroid_OnLoad( JavaVM *vm ) {
