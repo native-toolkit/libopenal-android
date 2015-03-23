@@ -5,7 +5,7 @@
             <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/openal-android/"/>
             <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/openal-android/include/"/>
             <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/openal-android/OpenAL32/include/"/>
-            <compilerflag value="-DAL_LIBTYPE_STATIC" />
+            <compilerflag value="-DAL_LIBTYPE_STATIC" if="native_toolkit_openal_static" />
             <compilerflag value="-DAL_ALEXT_PROTOTYPES" />
 
             <file name="${NATIVE_TOOLKIT_PATH}/openal-android/Alc/ALc.c"/>
