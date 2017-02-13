@@ -2,6 +2,8 @@
 
     <files id="native-toolkit-openal-android">
 
+            <cache value="1" />
+
             <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/openal-android/"/>
             <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/openal-android/include/"/>
             <compilerflag value="-I${NATIVE_TOOLKIT_PATH}/openal-android/OpenAL32/include/"/>
