@@ -35,6 +35,7 @@
 
             <!-- linker flags -->
         <lib name="-lOpenSLES" unless="native_toolkit_openal_static"/>
+        <flag value="-Wl,-soname,libopenal.so" />
 
     </target>
 
