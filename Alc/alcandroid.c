@@ -12,6 +12,20 @@ JavaVM *alcGetJavaVM(void) {
 	return javaVM;
 }
 
+void alcandroid_OnLoad( JavaVM *vm ) {
+	BackendFuncs func_list;
+	if (apportableOpenALFuncs.alc_android_set_java_vm) {
+		apportableOpenALFuncs.alc_android_set_java_vm(vm);
+	}
+	javaVM = vm;
+}
+
+void alcandroid_OnUnload( JavaVM *vm ) {
+	if (apportableOpenALFuncs.alc_android_set_java_vm) {
+		apportableOpenALFuncs.alc_android_set_java_vm(NULL);
+	}
+}
+
 	//when called as a shared lib, this is automatic
 	//but when embedding it that will be an error
 #ifdef NATIVE_TOOLKIT_OPENAL_ANDROID_SHARED
@@ -27,29 +41,14 @@ JavaVM *alcGetJavaVM(void) {
 
 #endif //NATIVE_TOOLKIT_OPENAL_ANDROID_SHARED
 
-
-void alcandroid_OnLoad( JavaVM *vm ) {
-	BackendFuncs func_list;
-	if (apportableOpenALFuncs.alc_android_set_java_vm) {
-		apportableOpenALFuncs.alc_android_set_java_vm(vm);
-	}
-	javaVM = vm;
-}
-
-void alcandroid_OnUnload( JavaVM *vm ) {
-	if (apportableOpenALFuncs.alc_android_set_java_vm) {
-		apportableOpenALFuncs.alc_android_set_java_vm(NULL);
-	}
-}
-
-void alcandroid_Suspend() {
+__attribute__((visibility("protected"))) void alcandroid_Suspend() {
 	LOGV("openal suspend");
 	if (apportableOpenALFuncs.alc_android_suspend) {
 		apportableOpenALFuncs.alc_android_suspend();
 	}
 }
 
-void alcandroid_Resume() {
+__attribute__((visibility("protected"))) void alcandroid_Resume() {
 	LOGV("openal resume");
 	if (apportableOpenALFuncs.alc_android_resume) {
 		apportableOpenALFuncs.alc_android_resume();
