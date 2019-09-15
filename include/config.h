@@ -6,7 +6,6 @@
 
 #define AL_BUILD_LIBRARY
 #define HAVE_GCC_VISIBILITY
-#define NATIVE_TOOLKIT_OPENAL_ANDROID_SHARED
 
 /* Define if we have the Android backend */
 #if defined(ANDROID)
