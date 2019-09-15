@@ -91,6 +91,27 @@
 /* Define if we have the __int64 type */
 /* #cmakedefine HAVE___INT64 */
 
+#ifdef HXCPP_ARM64
+
+	/* Define to the size of a void pointer type */
+	#define SIZEOF_VOIDP 8
+
+#else
+
+	#ifdef HXCPP_X86_64
+
+		/* Define to the size of a void pointer type */
+		#define SIZEOF_VOIDP 8
+
+	#else
+
+		/* Define to the size of a void pointer type */
+		#define SIZEOF_VOIDP 4
+
+	#endif
+
+#endif
+
 /* Define to the size of a long int type */
 #define SIZEOF_LONG 4
 
@@ -99,9 +120,6 @@
 
 /* Define to the size of an unsigned int type */
 #define SIZEOF_UINT 4
-
-/* Define to the size of a void pointer type */
-#define SIZEOF_VOIDP 4
 
 /* Define if we have GCC's destructor attribute */
 #define HAVE_GCC_DESTRUCTOR 1
